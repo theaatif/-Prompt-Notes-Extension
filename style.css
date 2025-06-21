@@ -1,0 +1,110 @@
+#notesBox {
+  position: fixed;
+  top: 60px;
+  left: 60px;
+  width: 320px;
+  height: 280px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  user-select: none;
+  cursor: move;
+}
+
+.notes-header {
+  background: #667eea;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+}
+
+.notes-toolbar {
+  background: #f4f4f4;
+  padding: 4px;
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.notes-toolbar button {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: black;
+}
+
+.notes-content {
+  height: calc(100% - 80px);
+  position: relative;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 14px;
+  resize: none;
+  color: black;
+}
+
+.resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  cursor: nwse-resize;
+  z-index: 10;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.resize-handle::before {
+  content: "⌞⌝";
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  font-size: 14px;
+  color: #667eea;
+  line-height: 1;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+#notesBox.collapsed {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+}
+
+#notesBox.collapsed .notes-header,
+#notesBox.collapsed .notes-content,
+#notesBox.collapsed .notes-toolbar {
+  display: none;
+}
+
+#notesBox.collapsed::after {
+  content: "📝";
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #667eea;
+  color: black;
+}
