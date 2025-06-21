@@ -53,12 +53,12 @@ toggleBtn.addEventListener("click", (e) => {
   }
 });
 
-// ✅ Remove notes box completely
+//  Remove notes box completely
 removeBtn.addEventListener("click", () => {
   notesBox.remove();
 });
 
-// ✅ Formatting buttons
+//  Formatting buttons
 document.querySelectorAll(".notes-toolbar button").forEach(button => {
   button.addEventListener("click", () => {
     const prefix = button.getAttribute("data-prefix");
@@ -66,7 +66,7 @@ document.querySelectorAll(".notes-toolbar button").forEach(button => {
   });
 });
 
-// ✅ Dragging
+//  Dragging
 let isDragging = false;
 let wasDragged = false;
 let offset = { x: 0, y: 0 };
@@ -103,7 +103,7 @@ document.addEventListener("mouseup", () => {
   setTimeout(() => (wasDragged = false), 200);
 });
 
-// ✅ Expand on click (only if not dragged)
+//  Expand on click (only if not dragged)
 notesBox.addEventListener("click", () => {
   if (isCollapsed && !wasDragged) {
     isCollapsed = false;
